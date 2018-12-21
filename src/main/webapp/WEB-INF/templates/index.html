@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>Accueil</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
 </head>
 <body>
-	<h1>Ça marche !</h1>
-	<p>Ceci est la page Web par défaut pour ce serveur.</p>
-	<small>Spring MVC 5.0</small>
+	<h1>Salut <span th:text="${username}"></span></h1>
+	<br>
 </body>
 </html>
