@@ -7,6 +7,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @Configuration
 @ComponentScan("br.com.leuras")
-public class WebMvcConfig {
+public class WebConfig {
 
 }

@@ -2,17 +2,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	
+
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<!-- Java 7 -->
 		<version>1.5.16.RELEASE</version>
-		<!-- Java 8 -->
-		<!-- <version>2.1.1.RELEASE</version> -->
-		<relativePath/>
+		<relativePath />
 	</parent>
-	
+
 	<groupId>br.com.leuras</groupId>
 	<artifactId>x509-mutual-authentication</artifactId>
 	<packaging>war</packaging>
@@ -22,7 +20,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.bundleEncoding>UTF-8</project.build.bundleEncoding>
-		
+
 		<!-- Maven Plugins -->
 		<war.plugin.version>3.2.2</war.plugin.version>
 		<clean.plugin.version>3.1.0</clean.plugin.version>
@@ -33,6 +31,9 @@
 		<maven.compiler.source>1.7</maven.compiler.source>
 
 		<jboss.bom.version>8.2.2.Final</jboss.bom.version>
+
+		<jtwig.version>5.86.1.RELEASE</jtwig.version>
+		<apache.commons.version>3.6</apache.commons.version>
 	</properties>
 
 	<dependencyManagement>
@@ -55,7 +56,7 @@
 			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
-	
+
 		<!-- Spring Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,7 +64,7 @@
 			<exclusions>
 				<exclusion>
 					<groupId>org.springframework.boot</groupId>
-		    		<artifactId>spring-boot-starter-tomcat</artifactId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -72,20 +73,40 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-						
+
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>org.jtwig</groupId>
+			<artifactId>jtwig-spring-boot-starter</artifactId>
+			<version>${jtwig.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
-		<!-- @See http://raufferlobo.com/en/post/web-content-with-spring-mvc-thymeleaf -->
+
 		<dependency>
-			<groupId>net.sourceforge.nekohtml</groupId>
-			<artifactId>nekohtml</artifactId>
+			<groupId>org.jtwig</groupId>
+			<artifactId>jtwig-spring-asset-extension</artifactId>
+			<version>${jtwig.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.commons</groupId>
+					<artifactId>commons-lang3</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-		
-	</dependencies>
 	
+		<!-- Workaround for jtwig dependencies conflict  -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${apache.commons.version}</version>
+		</dependency>
+				
+	</dependencies>
+
 	<build>
 		<finalName>x509-mutual-authentication</finalName>
 		<plugins>
