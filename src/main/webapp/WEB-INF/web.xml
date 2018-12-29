@@ -5,9 +5,7 @@
 <web-app>
 	<display-name>x509 Mutual Authentication Sample</display-name>
 	
-	<!-- 
 	<login-config>
 		<auth-method>CLIENT-CERT</auth-method>
 	</login-config>
-	 -->
 </web-app>
