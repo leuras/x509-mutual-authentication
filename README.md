@@ -1,8 +1,6 @@
 # Spring Boot Mutual Authentication Sample
 A simple example of x509 mutual authentication with Spring Boot.
 
-## HOW TO CREATE THE SERVER CERTIFICATE
-
 **Step 1: Create your server keystore**
 `keytool -genkey -alias <domain> -keyalg RSA -keysize 2048 -keystore keystore.jks`
 
