@@ -9,7 +9,7 @@ This is a simple example of X.509 TLS mutual authentication with Spring Boot.
 **Step 2: Generate a CSR**\
 `keytool -certreq -alias <domain> -file your_domain.csr -keystore keystore.jks`
 
-**Step 3: Getting a signed certificate**\
+**Step 3: Getting a signed certificate**
 1.	**Through a Certificate Authority**\
 	Send the CSR file to a CA of your choice and get your certificate.
 
