@@ -3,27 +3,27 @@ This is a simple example of X.509 TLS mutual authentication with Spring Boot.
 
 ## Certificates
 
-**Step 1: Create your server keystore**
+**Step 1: Create your server keystore**\
 `keytool -genkey -alias <domain> -keyalg RSA -keysize 2048 -keystore keystore.jks`
 
-**Step 2: Generate a CSR**
+**Step 2: Generate a CSR**\
 `keytool -certreq -alias <domain> -file your_domain.csr -keystore keystore.jks`
 
-**Step 3: Getting a signed certificate**
-1.	**Through a Certificate Authority**
+**Step 3: Getting a signed certificate**\
+1.	**Through a Certificate Authority**\
 	Send the CSR file to a CA of your choice and get your certificate.
 
-2. **Using EJBCA - RA Web**
+2. **Using EJBCA - RA Web**\
 	2.1. Click on "Make New Request"
 	2.3. Choose "Server" in the Certificate Type/Subtype option
 	3.4. Select key-pair generation "Provided by user"
 	3.5. Upload your CSR file created on step 2
 	3.6. Download your signed certificate
 
-**Step 4: Import into server keystore**
+**Step 4: Import into server keystore**\
 `keytool -import -trustcacerts -alias <domain> -file <certificate> -keystore keystore.jks`
 
-**Step 5: Create and import root certificates into truststore**
+**Step 5: Create and import root certificates into truststore**\
 In this step you will need of two thing: a client certificate (used to login) and the root ca certificate that issued your client certificate. The last one, you will import into server truststore.
 `keytool -import -file <root_certificate_filename> -alias <alias> -keystore truststore.jks`
 
