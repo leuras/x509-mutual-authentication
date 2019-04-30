@@ -24,7 +24,7 @@ This is a simple example of X.509 TLS mutual authentication with Spring Boot.
 `keytool -import -trustcacerts -alias <domain> -file <certificate> -keystore keystore.jks`
 
 **Step 5: Create and import root certificates into truststore**\
-In this step you will need of two thing: a client certificate (used to login) and the root ca certificate that issued your client certificate. The last one, you will import into server truststore.\
+In this step you will need of two things: a client certificate (used to login) and the root ca certificate that issued your client certificate. The last one, you will import into server truststore.\
 `keytool -import -file <root_certificate_filename> -alias <alias> -keystore truststore.jks`
 
 ## Server Setup
