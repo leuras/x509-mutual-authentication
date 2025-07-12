@@ -33,7 +33,7 @@
 		<jboss.bom.version>8.2.2.Final</jboss.bom.version>
 
 		<jtwig.version>5.86.1.RELEASE</jtwig.version>
-		<apache.commons.version>3.6</apache.commons.version>
+		<apache.commons.version>3.18.0</apache.commons.version>
 	</properties>
 
 	<dependencyManagement>
